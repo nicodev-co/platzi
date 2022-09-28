@@ -1,0 +1,16 @@
+{
+  "name": "paquete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "nicodev",
+  "license": "MIT",
+  "bin": {
+    "paquete": "./bin/global.js"
+  },
+  "preferGlobal": true
+}
