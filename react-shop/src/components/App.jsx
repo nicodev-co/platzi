@@ -1,9 +1,8 @@
 import React from "react";
 
-
 const App = () => {
   return (
-    <div>Hello word</div>
+    <div>Hello Word!</div>
   )
 }
 
