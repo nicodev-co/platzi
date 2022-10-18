@@ -1,10 +1,14 @@
 import React from "react";
-import '../styles/global.scss';
+import Layout from "../containers/Layout";
+import Login from "../containers/Login";
+import '../styles/global.css';
 
 const App = () => {
   return (
-    <div>Hello Word!</div>
+    <Layout>
+      <Login/>
+    </Layout>
   )
 }
 
-export default App
+export default App;
