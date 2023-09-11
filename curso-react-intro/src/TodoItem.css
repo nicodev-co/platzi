@@ -1,0 +1,32 @@
+.TodoItem {
+    display: flex;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 15px;
+}
+
+.TodoItem__text {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.TodoItem__text--completed {
+    text-decoration: line-through;
+}
+
+.icon {
+    font-weight: 800;
+}
+.icon-check--active { 
+    color: green;
+   
+}
+
+.TodoItem__icon-delete {
+    position: absolute;
+    right: 20px;
+    top: -10px;
+    color: red;
+    font-weight: 800;
+}
