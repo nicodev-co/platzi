@@ -19,25 +19,31 @@ function App() {
 
   const completedTodos = todos.filter(todo => !!todo.completed).length;
   const totalTodos = todos.length;
-    console.log(`buscando ${searchValue}`);
+
+  const searchedTodos = todos.filter((todo) => {
+      const todoText = todo.text.toLocaleLowerCase();
+      const searchText = searchValue.toLocaleLowerCase();
+      return todoText.includes(searchText);
+  });
+  console.log(`buscando ${searchValue}`);
 
   return (
     <>
 
-    <div className="card">
+      <div className="card">
 
-      <TodoCounter completed={completedTodos} total={totalTodos} />
-      <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TodoCounter completed={completedTodos} total={totalTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 
-      <TodoList>
-        {defaultTodos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
-        ))}
+        <TodoList>
+          {searchedTodos.map(todo => (
+            <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
+          ))}
 
-      </TodoList>
+        </TodoList>
 
-      <CreateTodoButton />
-    </div>
+        <CreateTodoButton />
+      </div>
 
     </>
 
