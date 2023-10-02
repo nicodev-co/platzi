@@ -1,13 +1,14 @@
+import { TodoIcon } from './TodoIcon';
 import './TodoItem.css'
 
 function TodoItem(props) {
     return (
         <li className="TodoItem">
-            <span className={`icon ${props.completed ? 'icon-check--active' : ''}`}
-                onClick={props.onCompleted}>V</span>
+            <TodoIcon color={props.completed ? 'green' : 'gray'} type='check' onClick={props.onCompleted} />
+
             <p className={`TodoItem__text ${props.completed ? 'TodoItem__text--completed' : ''}`}>{props.text}</p>
-            <span className="TodoItem__icon-delete"
-            onClick={props.onDelete}>X</span>
+            
+            <TodoIcon color='gray' type='delete' onClick={props.onDelete} />
         </li>
     );
 }

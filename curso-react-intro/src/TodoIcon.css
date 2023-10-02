@@ -1,0 +1,22 @@
+.icon-container {
+    cursor: pointer;
+}
+
+.icon-container-delete {
+    position: absolute;
+    right: 0;
+    top: -10px;
+}
+
+.icon-svg {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-container-check:hover .icon-svg {
+    fill: green;
+}
+
+.icon-container-delete:hover .icon-svg {
+    fill:red;
+}
