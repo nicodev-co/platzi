@@ -29,5 +29,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "homepage": "/home/nick/Documentos/platzi/curso-react-intro/build/",
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }
