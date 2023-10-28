@@ -1,16 +1,14 @@
 import './CreateTodoButton.css';
 
-function CreateTodoButton() {
+function CreateTodoButton({setOpenModal}) {
     return (
-        <button className='CreateTodoButton' 
-            onClick={
-                (event) => {
-                    
-                    console.log('hola');
-                    console.log(event);
-                }
-
-            }>Agregar</button>
+        <button className='icon-btn add-btn'
+        onClick={() => {
+            setOpenModal(state => !state);
+        }}>
+            <div className='add-icon'></div>
+            <div className='btn-txt'>Add Todo</div>
+        </button>
     );
 }
 
