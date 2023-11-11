@@ -1,23 +1,20 @@
 import React from 'react';
-import { withStorageListener } from './withStorageListener';
+import { useStorageListener } from './useStorageListener';
 
-const ChangeAlert = ({ show, toggleShow }) => {
+const ChangeAlert = ({ sincronize }) => {
+  const { show, toggleShow } = useStorageListener(sincronize);
   if (show) {
     return (
-        <div>
-            <p>Hubo cambios</p>
-            <button onClick={() => toggleShow(false)}>
-                Volver a cargar la informacion
-            </button>
-        </div>
+      <div>
+        <p>Hubo cambios</p>
+        <button onClick={() => toggleShow(false)}>
+          Volver a cargar la informacion
+        </button>
+      </div>
     );
-  }else {
-
-      return null;
+  } else {
+    return null;
   }
-
 };
 
-const ChangeAlertWithStorageListener = withStorageListener(ChangeAlert);
-
-export { ChangeAlertWithStorageListener };
+export { ChangeAlert };
