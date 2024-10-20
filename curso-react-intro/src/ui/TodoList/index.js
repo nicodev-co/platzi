@@ -12,7 +12,6 @@ function TodoList(props) {
         !props.searchedTodos.length &&
         props.onEmptySearchResults(props.searchText)}
       {!props.loading && props.searchedTodos.map(renderFunc)}
-      <ul className='TodoList'>{props.children}</ul>
     </section>
   );
 }

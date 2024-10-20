@@ -8,6 +8,7 @@ function TodoItem(props) {
 
             <p className={`TodoItem__text ${props.completed ? 'TodoItem__text--completed' : ''}`}>{props.text}</p>
             
+            <TodoIcon color='gray' type='edit' onClick={props.onEdit} />
             <TodoIcon color='gray' type='delete' onClick={props.onDelete} />
         </li>
     );

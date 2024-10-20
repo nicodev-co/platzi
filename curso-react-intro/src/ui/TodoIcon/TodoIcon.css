@@ -5,12 +5,18 @@
 .icon-container-delete {
     position: absolute;
     right: 0;
-    top: -10px;
+    top: -25px;
+}
+
+.icon-container-edit {
+    position: absolute;
+    right: 40px;
+    top: -25px;
 }
 
 .icon-svg {
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 48px;
 }
 
 .icon-container-check:hover .icon-svg {
@@ -19,4 +25,8 @@
 
 .icon-container-delete:hover .icon-svg {
     fill:red;
+}
+
+.icon-container-edit:hover .icon-svg {
+    fill:yellow;
 }

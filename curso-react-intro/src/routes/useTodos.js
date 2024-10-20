@@ -8,21 +8,26 @@ function useTodos() {
     sincronize: sincronizeTodo,
     loading,
     error,
-  } = useLocalStorage('TODOS_V1', []);
+  } = useLocalStorage('TODOS_V2', []);
 
   const [searchValue, setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
   const addTodo = (text) => {
+    const id = newTodoId();
     const newTodos = [...todos];
     newTodos.push({
       text,
       completed: false,
+      id
     });
     saveTodos(newTodos);
+  };
+
+  const getTodo = (id) => {
+    return todos.find((todo) => todo.id === id);
   };
 
   const searchedTodos = todos.filter((todo) => {
@@ -31,16 +36,23 @@ function useTodos() {
     return todoText.includes(searchText);
   });
 
-  const completeTodo = (text) => {
+  const completeTodo = (id) => {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.text === text);
+    const index = newTodos.findIndex((todo) => todo.id === id);
     newTodos[index].completed = true;
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
+  const editTodo = (id,newText) => {
     const newTodos = [...todos];
-    const index = newTodos.findIndex((todo) => todo.text === text);
+    const index = newTodos.findIndex((todo) => todo.id === id);
+    newTodos[index].text = newText;
+    saveTodos(newTodos);
+  };
+
+  const deleteTodo = (id) => {
+    const newTodos = [...todos];
+    const index = newTodos.findIndex((todo) => todo.id === id);
     newTodos.splice(index, 1);
     saveTodos(newTodos);
   };
@@ -55,11 +67,15 @@ function useTodos() {
     deleteTodo,
     loading,
     error,
-    openModal,
-    setOpenModal,
+    editTodo,
     addTodo,
-    sincronizeTodo
+    sincronizeTodo,
+    getTodo,
   };
+}
+
+function newTodoId() {
+  return Math.floor(Math.random() * 1000);
 }
 
 export { useTodos };
